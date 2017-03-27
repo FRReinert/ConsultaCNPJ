@@ -1,10 +1,24 @@
 # ConsultaCNPJ
 Consulta de dados por CNPJ
 
-# Como utilizar
-Veja alguns exemplos de uso para este módulo
+## Instalação e Utilização
 
-## Retornando um CNPJ com mascara
+### Instalando o módulo no seu environment
+1. verifique se o python está instalado: 
+```python
+python --version
+```
+2. instale o módulo com o PyPI: 
+```python
+pip install PyCNPJ
+```
+3 Verifique se está funcionando
+```python
+python
+import CNPJ
+```
+
+### Retornando um CNPJ com mascara
 Este código retorna o CNPJ com a mascara padrão de para exibição
 ```python
 import CNPJ
@@ -16,7 +30,7 @@ MaskedCGC = CGC.maskedCNPJ(cod)
 print(MaskedCGC)
 ```
 
-## Validando um CNPJ
+### Validando um CNPJ
 Faz o checksum do CNPJ e retorna ```True``` se for válido ou ```False```
 ```python
 import CNPJ
@@ -28,7 +42,7 @@ Valid     = CGC.Checksum(cod)
 print(Valid)
 ```
 
-## Consultando dados pelo CNPJ
+### Consultando dados pelo CNPJ
 Busca os dados em uma consulta via CNPJ no banco de dados da Receita Federal
 ```python
 import CNPJ
