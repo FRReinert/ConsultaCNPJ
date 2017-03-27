@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from CNPJ import ConsultaCNPJ
-import os
 
 # Query some company
 query = ConsultaCNPJ()
@@ -11,7 +10,7 @@ data  = query.newQuery('33592510000154', '02916265000160')
 # print data
 for cnpj, dados in data.items():
     
-    print('\n\n\nConsulta para %s' % cnpj)
+    print('\n\n\n>>> Consultando %s' % query.maskedCNPJ(cnpj))
     
     for atributos, valores in dados.items():
         
