@@ -5,7 +5,7 @@ Consulta de dados por CNPJ
 
 ### Instalando o módulo no seu environment
 1. verifique se o python está instalado: 
-```python
+```
 python --version
 ```
 2. instale o módulo com o PyPI: 
