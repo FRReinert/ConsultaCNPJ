@@ -4,25 +4,30 @@
 from CNPJ import ConsultaCNPJ
 import os
 
-# Onde gerar o PNG
-folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'images/')
-file   = os.path.join(folder, 'image.png')
+# Query some company
+query = ConsultaCNPJ()
+data  = query.newQuery('33592510000154', '02916265000160')
 
-# Instancia uma sessao
-Sessao = ConsultaCNPJ()
-Resposta, Imagem = Sessao.newSession()
-
-# Gera um PNG do captcha
-if os.path.exists(folder):
-    fp = open(file, 'wb')
-    fp.write(Imagem)
-    fp.close()
+# print data
+for cnpj, dados in data.items():
     
-# Faz uma consulta
-#cnpj    = input('CNPJ: ')
-cnpj    = '81591786000160' 
-captcha = input('Captcha: ')
+    print('\n\n\nConsulta para %s' % cnpj)
+    
+    for atributos, valores in dados.items():
+        
+        if isinstance(valores, list):
+            
+            print('%s' % atributos)
+            
+            for item in valores:
+       
+                for Codigo, Texto in item.items():
+                    
+                    print('    %s: %s' % (Codigo, Texto))
+        
+        else:
+            
+            print('%s: %s' % (atributos, valores))
 
-# Faz uma consulta
-consulta = Sessao.newQuery(Resposta, cnpj, captcha)
-print(consulta) 
+
+
