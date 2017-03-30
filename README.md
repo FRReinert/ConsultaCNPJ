@@ -48,13 +48,13 @@ Busca os dados em uma consulta via CNPJ no banco de dados da Receita Federal
 import CNPJ
 
 CGC   = CNPJ.ConsultaCNPJ()
-data  = CGC.newQuery('33592510000154', '02916265000160')
+dados = CGC.newQuery('33592510000154', '02916265000160')
 
 for cnpj, dados in data.items():
     print('\n\n\n>>> Consultando %s' % query.maskedCNPJ(cnpj))
         for atributos, valores in dados.items():
             if isinstance(valores, list):    
-            print('%s' % atributos)
+                print('%s' % atributos)
             for item in valores:
                 for Codigo, Texto in item.items():
                     print('    %s: %s' % (Codigo, Texto))
